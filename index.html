@@ -129,18 +129,55 @@
       font-style: italic;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
+
+    /* Galleria */
+    #galleria {
+      padding: 5rem 2rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .galleria-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .galleria-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInImg 1s ease forwards;
+    }
+    .galleria-grid img:nth-child(1) { animation-delay: 0.3s; }
+    .galleria-grid img:nth-child(2) { animation-delay: 0.6s; }
+    .galleria-grid img:nth-child(3) { animation-delay: 0.9s; }
+    .galleria-grid img:nth-child(4) { animation-delay: 1.2s; }
+
+    @keyframes fadeInImg {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     footer {
       text-align: center;
       padding: 1rem;
       background: #222;
       color: white;
     }
+
     @media (max-width: 768px) {
       .servizio {
         flex: 1 1 100%;
       }
       .hero-text {
         font-size: 1.5rem;
+      }
+      .galleria-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -162,6 +199,7 @@
     <a href="#" onclick="showSection('appuntamenti')"><img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="Calendario" />Appuntamenti</a>
     <a href="#" onclick="showSection('contatti')"><img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Contatti" />Contatti</a>
     <a href="#" onclick="showSection('recensioni')"><img src="https://cdn-icons-png.flaticon.com/512/102/102279.png" alt="Recensioni" />Recensioni</a>
+    <a href="#" onclick="showSection('galleria')"><img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" alt="Galleria" />Galleria</a>
   </nav>
 
   <header>
@@ -234,6 +272,16 @@
       <textarea id="recensione" name="recensione" rows="4" required></textarea><br><br>
       <button type="submit">Invia</button>
     </form>
+  </section>
+
+  <section id="galleria">
+    <h2>Galleria</h2>
+    <div class="galleria-grid">
+      <img src="img/galleria1.png" alt="galleria1">
+      <img src="img/galleria2.png" alt="galleria2">
+      <img src="img/galleria3.png" alt="galleria3">
+      <img src="img/galleria4.png" alt="galleria4">
+    </div>
   </section>
 
   <footer>
